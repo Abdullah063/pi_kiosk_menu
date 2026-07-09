@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Kiosk Switcher",
+  "version": "1.1",
+  "content_scripts": [
+    { "matches": ["*://*.youtube.com/*", "*://consent.google.com/*"], "js": ["youtube.js"], "run_at": "document_idle" },
+    { "matches": ["*://desk.wapulse.com.tr/*"], "js": ["menu.js"], "run_at": "document_idle" }
+  ]
+}
