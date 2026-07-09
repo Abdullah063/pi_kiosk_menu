@@ -38,6 +38,42 @@ Kiosk'u başlatmak için:
 /home/pi/run_kiosk.sh
 ```
 
+## Git Clone ile Kurulum
+
+Sadece `git clone` yapmak dosyaları Pi'ye indirir, fakat kiosk'un tam hazır çalışması için yol, izin ve görsel dosyası kontrol edilmelidir.
+
+Önerilen kullanım:
+
+```bash
+cd /home/pi
+git clone REPO_ADRESI pi_kiosk
+cd /home/pi/pi_kiosk
+chmod +x run_kiosk.sh landing.sh menu_kiosk.sh
+```
+
+Bu şekilde clone ederseniz dosyalar şu konumda olur:
+
+```bash
+/home/pi/pi_kiosk/run_kiosk.sh
+/home/pi/pi_kiosk/landing.sh
+/home/pi/pi_kiosk/menu_kiosk.sh
+/home/pi/pi_kiosk/kiosk_switcher
+```
+
+Bu kullanım için `menu_kiosk.sh` içindeki extension yolu da repo klasörüne göre ayarlanmalıdır:
+
+```bash
+--load-extension=/home/pi/pi_kiosk/kiosk_switcher
+```
+
+`landing.jpeg` dosyası da aynı klasöre koyulursa `landing.sh` içindeki yol şu şekilde kullanılabilir:
+
+```bash
+/home/pi/pi_kiosk/landing.jpeg
+```
+
+Özetle, `git clone` sonrası dosyalar gelir; ama çalıştırmadan önce `chmod`, extension yolu ve `landing.jpeg` konumu kontrol edilmelidir.
+
 ## Buton Konumu
 
 YouTube ve Menüye Dön butonları aynı ölçü ve konumda ayarlıdır:
